@@ -1,8 +1,9 @@
 import { styled } from 'styled-components'
+import { estilo } from '../../styles/variaveis'
 
 const StyledHeaderWithCart = styled.header`
   height: 186px;
-  background-color: #ffebd9;
+  background-color: ${estilo.corDaFonte2};
   padding-top: 64px;
 
   .container {
@@ -15,7 +16,9 @@ const StyledHeaderWithCart = styled.header`
       font-size: 18px;
       line-height: 21.09px;
       text-align: center;
+      color: ${estilo.corDaFonte};
     }
   }
 `
+
 export default StyledHeaderWithCart

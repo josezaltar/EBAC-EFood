@@ -1,4 +1,4 @@
-import StyledCard, { CardImg } from './style'
+import StyledCard, { CardImg } from './styles'
 import estrela from '../../assets/images/estrela.svg'
 import { CardButton } from '../Button'
 import CardTag from '../Tags'

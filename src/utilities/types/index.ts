@@ -11,6 +11,8 @@ export type MenuItemProps = {
   item_name: string
   item_description: string
   item_image: string
+  item_price: number
+  item_portion: string
 }
 
 export type RestaurantPageProps = {

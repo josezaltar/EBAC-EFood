@@ -1,4 +1,4 @@
-import StyledFooter from './style'
+import StyledFooter from './styles'
 import efoodLogo from '../../assets/images/logo.svg'
 import facebook from '../../assets/images/facebook.svg'
 import instagram from '../../assets/images/instagram.svg'

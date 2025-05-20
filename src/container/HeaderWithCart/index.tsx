@@ -1,4 +1,4 @@
-import StyledHeaderWithCart from './style'
+import StyledHeaderWithCart from './styles'
 import efoodLogo from '../../assets/images/logo.svg'
 import { Link } from 'react-router-dom'
 

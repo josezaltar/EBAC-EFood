@@ -1,4 +1,4 @@
-import StyledMain from './style'
+import StyledMain from './styles'
 
 import Card from '../../components/Card'
 import { CardProps } from '../../utilities/types'

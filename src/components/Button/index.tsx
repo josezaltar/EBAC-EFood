@@ -1,4 +1,4 @@
-import { StyledCardButton, StyledMenuItemButton } from './style'
+import { StyledCardButton, StyledMenuItemButton } from './styles'
 
 type Props = {
   children: string
