@@ -10,7 +10,9 @@ const HeaderWithCart = () => {
   return (
     <StyledHeaderWithCart>
       <div className="container">
-        <span>Restaurantes</span>
+        <Link to="/">
+          <span>Restaurantes</span>
+        </Link>
 
         <Link to="/">
           <img src={efoodLogo} alt="Logo do efood" />
