@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import HeaderWithCart from '../../container/HeaderWithCart'
 import MenuList from '../../container/MenuList'
 import { RestaurantPageProps } from '../../utilities/types'
+import CartSidebar from '../../components/CartSidebar'
 
 const Restaurants = () => {
   const [restaurant, setRestaurant] = useState<RestaurantPageProps | null>(null)
@@ -46,6 +47,7 @@ const Restaurants = () => {
         hero_image={restaurant.hero_image}
         menu_itens={restaurant.menu_itens}
       />
+      <CartSidebar />
     </>
   )
 }

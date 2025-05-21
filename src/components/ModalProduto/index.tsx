@@ -4,6 +4,7 @@ import { Container, Overlay, CloseButton, AddToCartButton } from './styles'
 type Props = {
   isVisible: boolean
   onClose: () => void
+  onAdd: () => void // ✅ prop que será chamada ao clicar no botão
   item: {
     nome: string
     descricao: string
@@ -13,7 +14,7 @@ type Props = {
   }
 }
 
-const ModalProduto = ({ isVisible, onClose, item }: Props) => {
+const ModalProduto = ({ isVisible, onClose, onAdd, item }: Props) => {
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
@@ -35,7 +36,7 @@ const ModalProduto = ({ isVisible, onClose, item }: Props) => {
           <p>
             <strong>Serve:</strong> {item.porcao}
           </p>
-          <AddToCartButton onClick={() => alert('Adicionado ao carrinho')}>
+          <AddToCartButton onClick={onAdd}>
             Adicionar ao carrinho – R$ {item.preco.toFixed(2)}
           </AddToCartButton>
         </div>
