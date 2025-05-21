@@ -13,11 +13,9 @@ const HeaderWithCart = () => {
         <Link to="/">
           <span>Restaurantes</span>
         </Link>
-
         <Link to="/">
           <img src={efoodLogo} alt="Logo do efood" />
         </Link>
-
         <span>
           {quantidade} produto{quantidade !== 1 ? 's' : ''} no carrinho
         </span>

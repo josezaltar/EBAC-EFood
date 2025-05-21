@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import Header from '../../container/Header'
 
 import { Lista } from './styles'

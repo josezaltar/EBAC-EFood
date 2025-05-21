@@ -1,10 +1,12 @@
 import { useEffect } from 'react'
-import { Container, Overlay, CloseButton, AddToCartButton } from './styles'
+import { Container, Overlay, AddToCartButton, CloseIcon } from './styles'
+
+import closeIcon from '../../assets/images/close.png'
 
 type Props = {
   isVisible: boolean
   onClose: () => void
-  onAdd: () => void // ✅ prop que será chamada ao clicar no botão
+  onAdd: () => void
   item: {
     nome: string
     descricao: string
@@ -26,10 +28,15 @@ const ModalProduto = ({ isVisible, onClose, onAdd, item }: Props) => {
 
   if (!isVisible) return null
 
+  const precoFormatado = item.preco.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  })
+
   return (
     <Overlay onClick={onClose}>
       <Container onClick={(e) => e.stopPropagation()}>
-        <img src={item.foto} alt={item.nome} />
+        <img src={item.foto} alt={item.nome} className="produto" />
         <div>
           <h2>{item.nome}</h2>
           <p>{item.descricao}</p>
@@ -37,10 +44,10 @@ const ModalProduto = ({ isVisible, onClose, onAdd, item }: Props) => {
             <strong>Serve:</strong> {item.porcao}
           </p>
           <AddToCartButton onClick={onAdd}>
-            Adicionar ao carrinho – R$ {item.preco.toFixed(2)}
+            Adicionar ao carrinho – {precoFormatado}
           </AddToCartButton>
         </div>
-        <CloseButton onClick={onClose}>×</CloseButton>
+        <CloseIcon src={closeIcon} alt="Fechar" onClick={onClose} />
       </Container>
     </Overlay>
   )

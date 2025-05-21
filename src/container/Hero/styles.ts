@@ -1,37 +1,46 @@
 import { styled } from 'styled-components'
 import { estilo } from '../../styles/variaveis'
 
-const StyledHero = styled.div`
-  height: 280px;
-  background-color: rgba(0, 0, 0, 0.5);
+export const HeroContainer = styled.div<{ imagem: string }>`
+  height: 384px;
+  position: relative;
+  background-image: url(${(props) => props.imagem});
   background-size: cover;
   background-position: center;
-  background-blend-mode: color;
-  display: flex;
-  align-items: center;
+  background-repeat: no-repeat;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #000;
+    opacity: 0.5;
+  }
 
   .container {
-    width: 1024px;
-    margin: 0 auto;
+    position: relative;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-
-    h2 {
-      color: ${estilo.corDoFundo};
-      font-family: Roboto, sans-serif;
-      font-size: 32px;
-      margin-bottom: 156px;
-    }
-
-    strong {
-      color: ${estilo.corDoFundo};
-      font-family: Roboto, sans-serif;
-      font-weight: 900;
-      font-size: 32px;
-      line-height: 100%;
-    }
+    justify-content: flex-end;
+    padding-bottom: 32px;
   }
 `
 
-export default StyledHero
+export const Tipo = styled.span`
+  font-size: 32px;
+  font-weight: 100;
+  font-family: Roboto, sans-serif;
+  color: ${estilo.corDoFundo};
+  z-index: 2;
+  margin-top: 25px;
+  margin-bottom: 221px;
+`
+
+export const Titulo = styled.h2`
+  font-size: 32px;
+  font-weight: 900;
+  font-family: Roboto, sans-serif;
+  color: ${estilo.corDoFundo};
+  z-index: 2;
+`

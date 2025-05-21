@@ -1,15 +1,19 @@
-import { RestaurantPageProps } from '../../utilities/types'
-import StyledHero from './styles'
+import { HeroContainer, Titulo, Tipo } from './styles'
 
-const Hero = (props: Omit<RestaurantPageProps, 'menu_itens'>) => (
-  <StyledHero style={{ backgroundImage: `url(${props.hero_image})` }}>
+type Props = {
+  name: string
+  food_type: string
+  hero_image: string
+}
+
+const Hero = ({ name, food_type, hero_image }: Props) => (
+  <HeroContainer imagem={hero_image}>
     <div className="container">
-      <h2>
-        {props.food_type.charAt(0).toUpperCase() + props.food_type.slice(1)}
-      </h2>
-      <strong>{props.name}</strong>
+      {' '}
+      <Tipo>{food_type}</Tipo>
+      <Titulo>{name}</Titulo>
     </div>
-  </StyledHero>
+  </HeroContainer>
 )
 
 export default Hero
