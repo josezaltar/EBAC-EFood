@@ -11,9 +11,11 @@ const EstiloGlobal = createGlobalStyle`
   }
 
   .container {
-    max-width: 1024px;
-    margin: 0 auto;
-  }
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
 `
 
 export default EstiloGlobal

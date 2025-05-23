@@ -3,39 +3,54 @@ import { estilo } from '../../styles/variaveis'
 
 const StyledMenuItem = styled.div`
   width: 320px;
-  height: 340px;
+  height: 338px;
   padding: 8px;
   background-color: ${estilo.corDaFonte};
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border-radius: 8px;
   overflow: hidden;
+  align-items: center;
 
   img {
-    width: 100%;
-    height: 170px;
+    width: 304px;
+    height: 167px;
     object-fit: cover;
-    border-radius: 4px;
   }
 
   h3 {
+    width: 304px;
     color: ${estilo.corDaFonte2};
     font-weight: 900;
     font-size: 16px;
-    margin: 8px 0 4px;
+    line-height: 19px;
+    margin: 10px;
   }
 
   p {
+    width: 304px;
     color: ${estilo.corDaFonte2};
     font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
     margin: 0 0 8px;
-    height: 40px;
+    height: 66px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+  }
+  button {
+    width: 304px;
+    height: 24px;
+    background-color: ${estilo.corDaFonte2};
+    color: ${estilo.corDaFonte};
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: auto;
   }
 `
 
