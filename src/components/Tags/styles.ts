@@ -12,7 +12,6 @@ const StyledCardTag = styled.div`
   font-weight: 700;
   display: flex;
   align-items: center;
-  border-radius: 4px;
 `
 
 export default StyledCardTag

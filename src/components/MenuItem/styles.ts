@@ -1,56 +1,56 @@
-import styled from 'styled-components'
-import { estilo } from '../../styles/variaveis'
+import { styled } from 'styled-components'
 
 const StyledMenuItem = styled.div`
-  width: 320px;
   height: 338px;
+  width: 320px;
   padding: 8px;
-  background-color: ${estilo.corDaFonte};
+  background-color: #e66767;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
-  align-items: center;
 
   img {
-    width: 304px;
+    width: 100%;
     height: 167px;
     object-fit: cover;
   }
 
   h3 {
-    width: 304px;
-    color: ${estilo.corDaFonte2};
+    color: #ffebd9;
     font-weight: 900;
     font-size: 16px;
-    line-height: 19px;
-    margin: 10px;
+    font-family: Roboto, sans-serif;
+    margin: 8px 0 4px;
   }
 
   p {
-    width: 304px;
-    color: ${estilo.corDaFonte2};
+    color: #ffebd9;
     font-size: 14px;
-    font-weight: 400;
     line-height: 22px;
+    font-weight: 400;
+    font-family: Roboto, sans-serif;
     margin: 0 0 8px;
-    height: 66px;
+    height: 88px;
+
     overflow: hidden;
-    text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
   }
+
   button {
-    width: 304px;
-    height: 24px;
-    background-color: ${estilo.corDaFonte2};
-    color: ${estilo.corDaFonte};
-    font-size: 14px;
+    background-color: #ffebd9;
+    color: #e66767;
     font-weight: 700;
+    font-size: 14px;
+    height: 24px;
+    width: 100%;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `
 

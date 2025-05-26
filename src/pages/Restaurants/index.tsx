@@ -1,53 +1,130 @@
-import { useEffect, useState } from 'react'
 import HeaderWithCart from '../../container/HeaderWithCart'
 import MenuList from '../../container/MenuList'
-import { RestaurantPageProps } from '../../utilities/types'
-import CartSidebar from '../../components/CartSidebar'
+
+import logo_la_dolce_vita_trattoria from '../../assets/images/restaurants/la_dolce_vita_trattoria/la_dolce_vita_trattoria.png'
+import logo_hioki_sushi from '../../assets/images/restaurants/hioki_sushi/hioki_sushi.png'
+import pizza_marguerita from '../../assets/images/restaurants/la_dolce_vita_trattoria/pizza_marguerita.png'
+import barca_tradicional from '../../assets/images/restaurants/hioki_sushi/barca_tradicional.jpg'
+import { MenuItemProps, RestaurantPageProps } from '../../utilities/types'
+
+const mock_itens: MenuItemProps[] = [
+  {
+    item_name: 'Pizza Margherita',
+    item_description:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    item_image: pizza_marguerita
+  },
+  {
+    item_name: 'Pizza Margherita',
+    item_description:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    item_image: pizza_marguerita
+  },
+  {
+    item_name: 'Pizza Margherita',
+    item_description:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    item_image: pizza_marguerita
+  },
+  {
+    item_name: 'Pizza Margherita',
+    item_description:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    item_image: pizza_marguerita
+  },
+  {
+    item_name: 'Pizza Margherita',
+    item_description:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    item_image: pizza_marguerita
+  },
+  {
+    item_name: 'Pizza Margherita',
+    item_description:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    item_image: pizza_marguerita
+  }
+]
+const mock_itens2: MenuItemProps[] = [
+  {
+    item_name: 'Barca Japonesa Tradicional - (40 Un.)',
+    item_description:
+      'Contém 7 Sashimi de Salmão, 6 Sushi de Salmão, 4 Maki Filadélfia, 2 Maki Salmão, 3 Nigiri Skin, 3 Uramaki Salmão Grelhado, 3 Uramaki Salmão Cheddar, 4 Joy Tartar de Salmão com...',
+    item_image: barca_tradicional
+  },
+  {
+    item_name: 'Barca Japonesa Tradicional - (40 Un.)',
+    item_description:
+      'Contém 7 Sashimi de Salmão, 6 Sushi de Salmão, 4 Maki Filadélfia, 2 Maki Salmão, 3 Nigiri Skin, 3 Uramaki Salmão Grelhado, 3 Uramaki Salmão Cheddar, 4 Joy Tartar de Salmão com...',
+    item_image: barca_tradicional
+  },
+  {
+    item_name: 'Barca Japonesa Tradicional - (40 Un.)',
+    item_description:
+      'Contém 7 Sashimi de Salmão, 6 Sushi de Salmão, 4 Maki Filadélfia, 2 Maki Salmão, 3 Nigiri Skin, 3 Uramaki Salmão Grelhado, 3 Uramaki Salmão Cheddar, 4 Joy Tartar de Salmão com...',
+    item_image: barca_tradicional
+  },
+  {
+    item_name: 'Barca Japonesa Tradicional - (40 Un.)',
+    item_description:
+      'Contém 7 Sashimi de Salmão, 6 Sushi de Salmão, 4 Maki Filadélfia, 2 Maki Salmão, 3 Nigiri Skin, 3 Uramaki Salmão Grelhado, 3 Uramaki Salmão Cheddar, 4 Joy Tartar de Salmão com...',
+    item_image: barca_tradicional
+  },
+  {
+    item_name: 'Barca Japonesa Tradicional - (40 Un.)',
+    item_description:
+      'Contém 7 Sashimi de Salmão, 6 Sushi de Salmão, 4 Maki Filadélfia, 2 Maki Salmão, 3 Nigiri Skin, 3 Uramaki Salmão Grelhado, 3 Uramaki Salmão Cheddar, 4 Joy Tartar de Salmão com...',
+    item_image: barca_tradicional
+  },
+  {
+    item_name: 'Barca Japonesa Tradicional - (40 Un.)',
+    item_description:
+      'Contém 7 Sashimi de Salmão, 6 Sushi de Salmão, 4 Maki Filadélfia, 2 Maki Salmão, 3 Nigiri Skin, 3 Uramaki Salmão Grelhado, 3 Uramaki Salmão Cheddar, 4 Joy Tartar de Salmão com...',
+    item_image: barca_tradicional
+  }
+]
+
+const mock_la_dolce_vita_trattoria: RestaurantPageProps = {
+  name: 'La Dolce Vita Trattoria',
+  food_type: 'Italiana',
+  hero_image: logo_la_dolce_vita_trattoria,
+  menu_itens: mock_itens
+}
+const mock_hioki_sushi: RestaurantPageProps = {
+  name: 'Hioki Sushi',
+  food_type: 'Japonesa',
+  hero_image: logo_hioki_sushi,
+  menu_itens: mock_itens2
+}
+
+const mock_page: { [key: string]: RestaurantPageProps } = {
+  la_dolce_vita_trattoria: mock_la_dolce_vita_trattoria,
+  hioki_sushi: mock_hioki_sushi
+}
 
 const Restaurants = () => {
-  const [restaurant, setRestaurant] = useState<RestaurantPageProps | null>(null)
-  const getRestaurantId = window.location.search.substring(1) // ex: ?1
+  const getRestaurantNameFromQuerie = window.location.search.substring(3)
+  if (
+    getRestaurantNameFromQuerie == '' &&
+    window.location.pathname == '/restaurantes'
+  ) {
+    window.location.reload()
+  }
+  if (!Object.keys(mock_page).includes(getRestaurantNameFromQuerie)) {
+    window.location.href = window.location.origin
+  }
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((data) => {
-        const found = data.find((r: any) => r.id.toString() === getRestaurantId)
-
-        if (!found) {
-          window.location.href = window.location.origin
-        } else {
-          const adaptado: RestaurantPageProps = {
-            name: found.titulo,
-            food_type: found.tipo,
-            hero_image: found.capa,
-            menu_itens: found.cardapio.map((item: any) => ({
-              item_name: item.nome,
-              item_description: item.descricao,
-              item_image: item.foto,
-              item_price: item.preco,
-              item_portion: item.porcao
-            }))
-          }
-
-          setRestaurant(adaptado)
-          document.title = 'eFood | ' + adaptado.name
-        }
-      })
-  }, [getRestaurantId])
-
-  if (!restaurant) return <p>Carregando restaurante...</p>
+  document.title = 'eFood | ' + mock_page[getRestaurantNameFromQuerie].name
 
   return (
     <>
       <HeaderWithCart />
       <MenuList
-        name={restaurant.name}
-        food_type={restaurant.food_type}
-        hero_image={restaurant.hero_image}
-        menu_itens={restaurant.menu_itens}
+        name={mock_page[getRestaurantNameFromQuerie].name}
+        food_type={mock_page[getRestaurantNameFromQuerie].food_type}
+        hero_image={mock_page[getRestaurantNameFromQuerie].hero_image}
+        menu_itens={mock_page[getRestaurantNameFromQuerie].menu_itens}
       />
-      <CartSidebar />
     </>
   )
 }

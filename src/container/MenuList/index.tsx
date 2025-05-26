@@ -1,5 +1,7 @@
 import StyledMenuList from './styles'
+
 import Hero from '../Hero'
+
 import MenuItem from '../../components/MenuItem'
 import { RestaurantPageProps } from '../../utilities/types'
 
@@ -18,8 +20,6 @@ const MenuList = (props: RestaurantPageProps) => (
             item_name={item.item_name}
             item_description={item.item_description}
             item_image={item.item_image}
-            item_price={item.item_price}
-            item_portion={item.item_portion}
           />
         ))}
       </StyledMenuList>
