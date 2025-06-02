@@ -1,85 +1,87 @@
+import { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import Header from '../../container/Header'
 
-import { Lista } from './styles'
+type RestauranteAPI = {
+  id: number
+  titulo: string
+  tipo: string
+  capa: string
+  avaliacao: number
+}
 
-import Card from '../../components/Card'
-import { CardProps } from '../../utilities/types'
+const Lista = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  list-style: none;
+  padding: 40px 0;
+`
 
-import hioki_sushi from '../../assets/images/restaurants/hioki_sushi/hioki_sushi.png'
-import la_dolce_vita_trattoria from '../../assets/images/restaurants/la_dolce_vita_trattoria/la_dolce_vita_trattoria.png'
+const RestauranteCard = styled.li`
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s;
 
-const mock: CardProps[] = [
-  {
-    image: hioki_sushi,
-    title: 'Hioki Sushi',
-    desciption:
-      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
-    tags: ['Destaque da semana', 'Japonesa'],
-    note: 4.9,
-    page: 'hioki_sushi'
-  },
-  {
-    image: la_dolce_vita_trattoria,
-    title: 'La Dolce Vita Trattoria',
-    desciption:
-      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
-    tags: ['Italiana'],
-    note: 4.6,
-    page: 'la_dolce_vita_trattoria'
-  },
-  {
-    image: hioki_sushi,
-    title: 'Hioki Sushi',
-    desciption:
-      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
-    tags: ['Destaque da semana', 'Japonesa'],
-    note: 4.9,
-    page: 'hioki_sushi'
-  },
-  {
-    image: la_dolce_vita_trattoria,
-    title: 'La Dolce Vita Trattoria',
-    desciption:
-      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
-    tags: ['Italiana'],
-    note: 4.6,
-    page: 'la_dolce_vita_trattoria'
-  },
-  {
-    image: la_dolce_vita_trattoria,
-    title: 'La Dolce Vita Trattoria',
-    desciption:
-      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
-    tags: ['Italiana'],
-    note: 4.6,
-    page: 'la_dolce_vita_trattoria'
-  },
-  {
-    image: hioki_sushi,
-    title: 'Hioki Sushi',
-    desciption:
-      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
-    tags: ['Destaque da semana', 'Japonesa'],
-    note: 4.9,
-    page: 'hioki_sushi'
+  &:hover {
+    transform: scale(1.02);
   }
-]
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  div {
+    padding: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin: 0 0 8px 0;
+  }
+
+  p {
+    margin: 0;
+    color: #666;
+  }
+
+  span {
+    display: block;
+    margin-top: 8px;
+    font-weight: bold;
+  }
+`
+
 const Home = () => {
+  const [restaurantes, setRestaurantes] = useState<RestauranteAPI[]>([])
+
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+      .then((res) => res.json())
+      .then((data) => setRestaurantes(data))
+  }, [])
+
   return (
     <>
       <Header />
       <div className="container">
         <Lista>
-          {mock.map((card, index) => (
-            <Card
-              key={index}
-              image={card.image}
-              desciption={card.desciption}
-              title={card.title}
-              tags={card.tags}
-              note={card.note}
-              page={card.page}
-            />
+          {restaurantes.map((restaurante) => (
+            <RestauranteCard key={restaurante.id}>
+              <Link to={`/restaurantes?${restaurante.id}`}>
+                <img src={restaurante.capa} alt={restaurante.titulo} />
+                <div>
+                  <h2>{restaurante.titulo}</h2>
+                  <p>{restaurante.tipo}</p>
+                  <span>⭐ {restaurante.avaliacao}</span>
+                </div>
+              </Link>
+            </RestauranteCard>
           ))}
         </Lista>
       </div>

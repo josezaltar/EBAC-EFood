@@ -1,56 +1,41 @@
-import { styled } from 'styled-components'
+import styled from 'styled-components'
+import { estilo } from '../../styles/variaveis'
 
 const StyledMenuItem = styled.div`
-  height: 338px;
   width: 320px;
+  height: 340px;
   padding: 8px;
-  background-color: #e66767;
+  background-color: ${estilo.corDaFonte};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 8px;
   overflow: hidden;
 
   img {
     width: 100%;
-    height: 167px;
+    height: 170px;
     object-fit: cover;
+    border-radius: 4px;
   }
 
   h3 {
-    color: #ffebd9;
+    color: ${estilo.corDaFonte2};
     font-weight: 900;
     font-size: 16px;
-    font-family: Roboto, sans-serif;
     margin: 8px 0 4px;
   }
 
   p {
-    color: #ffebd9;
+    color: ${estilo.corDaFonte2};
     font-size: 14px;
-    line-height: 22px;
-    font-weight: 400;
-    font-family: Roboto, sans-serif;
     margin: 0 0 8px;
-    height: 88px;
-
+    height: 40px;
     overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
     text-overflow: ellipsis;
-  }
-
-  button {
-    background-color: #ffebd9;
-    color: #e66767;
-    font-weight: 700;
-    font-size: 14px;
-    height: 24px;
-    width: 100%;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 `
 

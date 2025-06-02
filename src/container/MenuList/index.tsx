@@ -1,13 +1,9 @@
 import StyledMenuList from './styles'
 import Hero from '../Hero'
 import MenuItem from '../../components/MenuItem'
-import { RestaurantPageProps, MenuItemProps } from '../../utilities/types'
+import { RestaurantPageProps } from '../../utilities/types'
 
-type Props = RestaurantPageProps & {
-  onDetalhesClick: (item: MenuItemProps) => void
-}
-
-const MenuList = (props: Props) => (
+const MenuList = (props: RestaurantPageProps) => (
   <>
     <Hero
       food_type={props.food_type}
@@ -22,7 +18,8 @@ const MenuList = (props: Props) => (
             item_name={item.item_name}
             item_description={item.item_description}
             item_image={item.item_image}
-            onClick={() => props.onDetalhesClick(item)}
+            item_price={item.item_price}
+            item_portion={item.item_portion}
           />
         ))}
       </StyledMenuList>

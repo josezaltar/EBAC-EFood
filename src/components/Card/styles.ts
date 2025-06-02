@@ -22,7 +22,6 @@ const StyledCard = styled.div`
     #card_header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
 
       h3 {
         font-size: 18px;
@@ -30,24 +29,15 @@ const StyledCard = styled.div`
         line-height: 21.09px;
         text-align: center;
         color: ${estilo.corDaFonte};
-        margin-bottom: 0;
       }
 
       #card_point {
         display: flex;
-        align-items: center;
         gap: 8px;
-        width: 55px;
-
         font-weight: 700;
         font-size: 18px;
         line-height: 24px;
         color: ${estilo.corDaEstrela};
-
-        img {
-          width: 21px;
-          height: 21px;
-        }
       }
     }
 
@@ -62,7 +52,6 @@ const StyledCard = styled.div`
 const CardImg = styled.div`
   height: 218px;
   background-color: ${estilo.corDoFundo};
-  margin-bottom: 8px;
 `
 
 export default StyledCard
