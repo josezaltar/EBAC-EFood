@@ -34,6 +34,7 @@ export const RestauranteCard = styled.li`
     font-size: 20px;
     margin: 0 0 8px 0;
     color: ${estilo.corDaFonte};
+    font-weight: 900;
   }
 
   p {

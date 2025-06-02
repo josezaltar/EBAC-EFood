@@ -14,7 +14,7 @@ const MenuItem = (props: MenuItemProps) => {
         <h3>{props.item_name}</h3>
         <p>{props.item_description}</p>
         <StyledMenuItemButton onClick={() => setIsModalVisible(true)}>
-          Adicionar ao carrinho
+          Mais detalhes
         </StyledMenuItemButton>
       </StyledMenuItem>
 
