@@ -10,7 +10,9 @@ import {
   CartInfo,
   RemoveButton,
   TotalValue,
-  ButtonFinalizar
+  ButtonFinalizar,
+  CartInfoTitle,
+  CartInfoPrice
 } from './styles'
 
 const CartSidebar = () => {
@@ -28,8 +30,8 @@ const CartSidebar = () => {
           <CartItem key={item.id}>
             <CartImage src={item.foto} alt={item.nome} />
             <CartInfo>
-              <h3>{item.nome}</h3>
-              <p>R$ {item.preco.toFixed(2)}</p>
+              <CartInfoTitle>{item.nome}</CartInfoTitle>
+              <CartInfoPrice>R$ {item.preco.toFixed(2)}</CartInfoPrice>
               <RemoveButton onClick={() => dispatch(remover(item.id))}>
                 🗑️
               </RemoveButton>

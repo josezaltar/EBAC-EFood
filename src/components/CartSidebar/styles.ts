@@ -22,14 +22,14 @@ export const Sidebar = styled.aside`
   display: flex;
   flex-direction: column;
 `
-
 export const CartItem = styled.div`
   display: flex;
   background-color: ${estilo.corDaFonte2};
   border-radius: 8px;
   margin-bottom: 16px;
   padding: 8px;
-  gap: 8px;
+  gap: 16px; /* Espaçamento entre a imagem e o texto */
+  align-items: center; /* Alinha a imagem e o texto verticalmente */
 `
 
 export const CartImage = styled.img`
@@ -44,20 +44,6 @@ export const CartInfo = styled.div`
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
-
-  h3 {
-    font-size: 14px;
-    font-weight: bold;
-    color: ${estilo.corDaFonte};
-    margin: 0;
-  }
-
-  p {
-    margin: 0;
-    font-weight: bold;
-    font-size: 14px;
-    color: ${estilo.corDaFonte};
-  }
 `
 
 export const RemoveButton = styled.button`
@@ -87,4 +73,18 @@ export const ButtonFinalizar = styled.button`
   padding: 12px;
   border-radius: 4px;
   cursor: pointer;
+`
+
+/* Para adicionar espaço entre h3 e p */
+export const CartInfoTitle = styled.h3`
+  margin-top: 20px;
+  margin-bottom: 40px; /* Adiciona o espaço entre o nome e o preço */
+  font-size: 20px;
+  align-items: center;
+`
+
+export const CartInfoPrice = styled.p`
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: bold;
 `

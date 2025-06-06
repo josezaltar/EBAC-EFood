@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import HeaderWithCart from '../../container/HeaderWithCart'
 import MenuList from '../../container/MenuList'
 import { RestaurantPageProps } from '../../utilities/types'
+import CartSidebar from '../../components/CartSidebar'
 
 const Restaurants = () => {
   const [restaurant, setRestaurant] = useState<RestaurantPageProps | null>(null)
@@ -11,7 +12,6 @@ const Restaurants = () => {
     fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
       .then((res) => res.json())
       .then((data) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const found = data.find((r: any) => r.id.toString() === getRestaurantId)
 
         if (!found) {
@@ -21,7 +21,6 @@ const Restaurants = () => {
             name: found.titulo,
             food_type: found.tipo,
             hero_image: found.capa,
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             menu_itens: found.cardapio.map((item: any) => ({
               item_name: item.nome,
               item_description: item.descricao,
@@ -48,6 +47,7 @@ const Restaurants = () => {
         hero_image={restaurant.hero_image}
         menu_itens={restaurant.menu_itens}
       />
+      <CartSidebar />
     </>
   )
 }

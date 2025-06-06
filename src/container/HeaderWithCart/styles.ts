@@ -1,7 +1,8 @@
 import { styled } from 'styled-components'
 import { estilo } from '../../styles/variaveis'
+import { Link } from 'react-router-dom'
 
-const StyledHeaderWithCart = styled.header`
+export const StyledHeaderWithCart = styled.header`
   height: 186px;
   background-color: ${estilo.corDaFonte2};
   display: flex;
@@ -29,5 +30,8 @@ const StyledHeaderWithCart = styled.header`
     }
   }
 `
-
-export default StyledHeaderWithCart
+export const StyledLink = styled(Link)`
+  text-decoration: none; /* Remove o sublinhado */
+  color: #e66767; /* Defina uma cor para o link, senão ele pode ficar roxo/azul padrão */
+  font-weight: bold;
+`
