@@ -2,6 +2,7 @@ import { BrowserRouter } from 'react-router-dom'
 import Footer from './container/Footer'
 import EstiloGlobal from './styles'
 import Rotas from './routes'
+import reportWebVitals from './reportWebVitals' // Importação corrigida
 
 function App() {
   return (
@@ -14,3 +15,6 @@ function App() {
 }
 
 export default App
+
+// Chamada para coletar dados de performance
+reportWebVitals()
