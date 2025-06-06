@@ -7,9 +7,9 @@ const reportWebVitals = (onPerfEntry?: ReportHandler) => {
       getFID(onPerfEntry) // First Input Delay
       getFCP(onPerfEntry) // First Contentful Paint
       getLCP(onPerfEntry) // Largest Contentful Paint
-      getTTFB(onPerfEntry) // Time to First Byte
+      getTTFB(onPerfEntry)
     })
   }
 }
 
-export default reportWebVitals // **Certifique-se de que está exportando assim**
+export default reportWebVitals

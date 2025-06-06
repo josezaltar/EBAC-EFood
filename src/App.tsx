@@ -2,7 +2,9 @@ import { BrowserRouter } from 'react-router-dom'
 import Footer from './container/Footer'
 import EstiloGlobal from './styles'
 import Rotas from './routes'
-import reportWebVitals from './reportWebVitals' // Importação corrigida
+
+// Importando o pacote para ativar o Analytics automaticamente
+import '@vercel/analytics' // Importação simples do pacote
 
 function App() {
   return (
@@ -15,6 +17,3 @@ function App() {
 }
 
 export default App
-
-// Chamada para coletar dados de performance
-reportWebVitals()
