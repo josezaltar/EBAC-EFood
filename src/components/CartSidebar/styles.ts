@@ -71,7 +71,6 @@ export const ButtonFinalizar = styled.button`
   font-weight: bold;
   border: none;
   padding: 12px;
-  border-radius: 4px;
   cursor: pointer;
 `
 
